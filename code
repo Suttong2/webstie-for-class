@@ -1,0 +1,53 @@
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+
+export default function Home() {
+  const [tab, setTab] = useState('home');
+
+  const renderTabContent = () => {
+    if (tab === 'benefits') {
+      return (
+        <div className='text-gray-100'><h2 className='text-xl mb-4'>Benefits & Improvements</h2>
+          <ul className='list-disc ml-6'>
+            <li><strong>3 Ways Exercise Can Improve Your Appearance:</strong> Improves skin quality, enhances muscle tone, and reduces body fat.</li>
+            <li><strong>Benefits of Weight Training:</strong> Increases strength, boosts metabolism, improves bone density.</li>
+            <li><strong>Purpose of a Warmup & Cool Down:</strong> Warmups increase blood flow, improve performance, and reduce injury risk. Cooldowns help recovery and flexibility.</li>
+            <li><strong>Reasons to Exercise & Potential Setbacks:</strong> Exercise improves mood, boosts energy, and promotes longevity. Setbacks could include injury, time constraints, or lack of motivation.</li>
+          </ul>
+        </div>
+      );
+    }
+
+    return (
+      <div className='text-white'>
+        <h1 className='text-4xl font-bold mb-6'>Welcome to Sutton Strength Society</h1>
+        <p className='mb-4'>We offer intense and effective workout programs including sprinting for cardio, deadlifts to build strength, bench press for high-intensity interval training (HIIT), and tire flipping as part of our nontraditional exercises that challenge your body in unique ways.</p>
+        <p className='mb-4'>Our gym is designed for those who are serious about getting strong, offering the best equipment and trainers. We even have a specialized section for unconventional training methods like tire flipping, sledgehammer workouts, and obstacle courses.</p>
+        <h3 className='text-2xl mt-6 mb-2'>Location & Hours</h3>
+        <p>123 Strength Ave, Sutton City</p>
+        <p>Mon-Fri: 6 AM - 9 PM</p>
+        <p>Sat: 8 AM - 5 PM | Sun: Closed</p>
+      </div>
+    );
+  };
+
+  return (
+    <div className='bg-gray-900 min-h-screen p-8 text-gray-100'>
+      <nav className='flex justify-between items-center mb-8'>
+        <h1 className='text-3xl font-bold'>Sutton Strength Society</h1>
+        <div>
+          <Button onClick={() => setTab('home')} className='mr-4'>Home</Button>
+          <Button onClick={() => setTab('benefits')}>Benefits & Improvements</Button>
+        </div>
+      </nav>
+      <Card className='bg-gray-800 p-4'>
+        <CardContent>
+          {renderTabContent()}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
